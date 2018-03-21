@@ -1,0 +1,25 @@
+normal-order evaluation
+
+(gcd 206 40)
+40 != 0
++0
+
+(gcd 40 (remainder 206 40))
+(remainder 206 40) = 6 != 0
++1
+
+(gcd (remainder 206 40) (remainder 40 (remainder 206 40)))
+(remainder 40 (remainder 206 40)) = 4 != 0
++2
+
+(gcd (remainder 40 (remainder 206 40)) (remainder (remainder 206 40) (remainder 40 (remainder 206 40))))
+(remainder (remainder 206 40) (remainder 40 (remainder 206 40))) = 2 != 0
++4
+
+(gcd (remainder (remainder 206 40) (remainder 40 (remainder 206 40))) (remainder (remainder 40 (remainder 206 40)) (remainder (remainder 206 40) (remainder 40 (remainder 206 40)))))
+(remainder (remainder 40 (remainder 206 40)) (remainder (remainder 206 40) (remainder 40 (remainder 206 40)))) = 0
++7
+
+remainders executed when checking b = 0: 14
+remainders executed when evaluating a in the last iteration: 4
+total remainders executed: 18
