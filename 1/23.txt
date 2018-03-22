@@ -1,0 +1,4 @@
+;the time taken the modified find-divisor procedur
+;decreased to .7s down from 1.3s
+;it's x1.85 faster, not exactly 2
+;maybe it's not exactly 2 because there's an additinal check in the next-divisor procedure (= divisor 2)
