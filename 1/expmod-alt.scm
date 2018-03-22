@@ -1,2 +1,3 @@
-(define (expmod base exp m)
+(define (expmod-alt base exp m)
  (remainder (fast-expt base exp) m))
+

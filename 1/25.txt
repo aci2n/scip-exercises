@@ -1,0 +1,30 @@
+the current expmod makes use of the fact that:
+
+(remainder (* x y) m) = (remainder (* (remainder x m) (remainder y m)) m)
+
+so if we have (expmod b e m) with even e:
+(exp b e) = (square (exp b (/ e 2)))
+if x = y = (exp b (/ e 2))
+(square x) = (square y) = (exp b e)
+(remainder (square x) m) = (remainder (square (remainder x m)) m)
+
+looking at the equality above, the second term in the worst case applies square to (- m 1)
+this way it avoids computing potentially big (exp b e)'s
+
+example:
+
+(expmod 100 1003 1003)
+
+the "bad" way does:
+(remainder (exp 100 1003) 1003) -> pretty big (exp 100 1003)
+
+the "good" way does:
+(remainder (* 100 (expmod 100 1002 1003)) 1003)
+(remainder (square (expmod 100 551 1003)) 1003)
+(remainder (* 100 (expmod 100 550 1003)) 1003)
+(remainder (square (expmod 100 225 1003)) 1003)
+...
+(remainder (* 100 1) 1003)
+(remainder (square (100)) 1003) -> only (exp 100 2), worst is (exp 1002 2)
+
+and it's not that it has more steps, just that i'm not expanding those in the (exp) process

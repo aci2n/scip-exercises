@@ -1,0 +1,22 @@
+(expmod 2 5 5)
+(remainder (* 2 (expmod 2 4 5)) m)
+(remainder (* 2 1) 5)
+2
+
+(expmod 2 4 5)
+(remainder (square (expmod 2 2 5)) 5)
+(remainder (square 4) 5)
+1
+
+(expmod 2 2 5)
+(remainder (square (expmod 2 1 5)) 5)
+(remainder (square 2) 5)
+4
+
+(expmod 2 1 5)
+(remainder (* 2 (expmod 2 0 5)) 5)
+(remainder (* 2 1) 5)
+2
+
+(expmod 2 0 5)
+1
