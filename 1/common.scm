@@ -35,4 +35,4 @@
 (define (even? a)
  (even a))
 
-(load "fast-prime.lisp")
+(load "fast-prime.scm")
