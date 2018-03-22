@@ -36,3 +36,4 @@
  (even a))
 
 (load "fast-prime.scm")
+(load "fast-expt.scm")
