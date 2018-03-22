@@ -1,0 +1,84 @@
+steps(i) = {
+ 1			if i = 0
+ steps(i - 1) + 1	if i is uneven
+ steps(i / 2) * 2 + 1	if i is even
+}
+
+can't seem to figure out the order of growth ones on my own, feels bad being a brainlet
+
+> http://community.schemewiki.org/?sicp-ex-1.26
+there it says that the process generates a recursive tree with a depth of a logarithm of n,
+and computing the tree has exponential cost, so they pretty much cancel out and as a result
+the order of growth is linear. or so i understand. wish the book explained this a little further
+to be honest
+
+3
+-2
+--1
+---0
+--1
+---0
+6 steps
+
+4
+-2
+--1
+---0
+--1
+---0
+-2
+--1
+---0
+--1
+---0
+11 steps
+
+5
+-4
+--2
+---1
+----0
+---1
+----0
+--2
+---1
+----0
+---1
+----0
+12 steps
+
+6
+-3
+--2
+---1
+----0
+---1
+----0
+-3
+--2
+---1
+----0
+---1
+----0
+13 steps
+
+7
+-6
+--3
+---2
+----1
+-----0
+----1
+-----0
+--3
+---2
+----1
+-----0
+----1
+-----0
+14 steps
+
+8
+-4
+-4
+23 steps
