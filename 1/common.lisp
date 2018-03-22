@@ -1,0 +1,35 @@
+(define (even a)
+ (* a 2))
+
+(define (halve a)
+ (/ a 2))
+
+(define (even a)
+ (= (remainder a 2) 0))
+
+(define (square a)
+ (* a a))
+
+(define (smallest-divisor n)
+ (find-divisor n 2))
+
+(define (find-divisor-old n test-divisor)
+ (cond ((> (square test-divisor) n) n)
+       ((divides? test-divisor n) test-divisor)
+       (else (find-divisor n (+ test-divisor 1)))))
+
+(define (find-divisor n test-divisor)
+ (define (next divisor)
+  (if (= divisor 2) 3 (+ divisor 2)))
+ (cond ((> (square test-divisor) n) n)
+       ((divides? test-divisor n) test-divisor)
+       (else (find-divisor n (+ test-divisor 1)))))
+
+(define (divides? a b)
+ (= (remainder b a) 0))
+
+(define (prime? n)
+ (= (smallest-divisor n) n))
+
+(define (even? a)
+ (even a))
