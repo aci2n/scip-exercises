@@ -38,3 +38,7 @@
 (load "fast-prime.scm")
 (load "expmod-alt.scm")
 (load "fast-expt.scm")
+
+(define (cube x) (* x x x))
+(define (identity x) x)
+(define (inc x) (+ x 1))
