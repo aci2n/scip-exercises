@@ -1,3 +1,6 @@
+(define (abs a)
+ (if (< a 0) (- a) a))
+
 (define (even a)
  (* a 2))
 
