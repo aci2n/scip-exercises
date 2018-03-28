@@ -45,3 +45,9 @@
 (define (cube x) (* x x x))
 (define (identity x) x)
 (define (inc x) (+ x 1))
+
+(define (power x n)
+ (fast-expt x n))
+
+(define (average x y)
+ (/ (+ x y) 2))

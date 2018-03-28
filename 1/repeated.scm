@@ -1,15 +1,13 @@
-(define (repeated f n)
+(define (repeated-alt f n)
  (define (iter step result)
-  (if (= step 0)
-      result
+  (if (= step 1)
+      f
       (iter (- step 1) (f result))))
- (lambda (x) (iter n x)))
+ (iter n f))
 
 (load "compose.scm")
 
-(define (repeated-2 f n)
- (define (iter step composed)
-  (if (= step 1)
-      composed
-      (iter (- step 1) (compose f composed))))
- (iter n f))
+(define (repeated f n)
+ (if (= n 1)
+     f
+     (compose f (repeated f (- n 1)))))
