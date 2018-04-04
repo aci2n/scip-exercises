@@ -5,41 +5,45 @@
 ;D___C
 ;A___B
 
-(define (a-rect s)
- (start-segment s))
+(define (make-rectangle point-a point-c)
+ (make-segment point-a point-c))
 
-(define (b-rect s)
- (make-segment (x-point (c-rect s)) (y-point (a-rect s))))
+(define (rectangle-a rectangle)
+ (start-segment rectangle))
 
-(define (c-rect s)
- (end-segment s))
+(define (rectangle-b rectangle)
+ (make-point (x-point (rectangle-c rectangle)) (y-point (rectangle-a rectangle))))
 
-(define (d-rect s)
- (make-segment (x-point (a-rect s)) (y-point (c-rect s))))
+(define (rectangle-c rectangle)
+ (end-segment rectangle))
 
-(define (square-delta s point-extractor)
- (square (- (point-extractor (end-segment s)) (point-extractor (start-segment s)))))
+(define (rectangle-d rectangle)
+ (make-point (x-point (rectangle-a rectangle)) (y-point (rectangle-c rectangle))))
 
-(define (segment-length s)
- (sqrt (+ (square-delta s x-point) (square-delta s y-point))))
+(define (square-delta segment point-getter)
+ (square (- (point-getter (end-segment segment)) (point-getter (start-segment segment)))))
 
-(define (a-segment-rect s)
- (make-segment (a-rect s) (b-rect s)))
+(define (segment-length segment)
+ (sqrt (+ (square-delta segment x-point) (square-delta segment y-point))))
 
-(define (b-segment-rect s)
- (make-segment (b-rect s) (c-rect s)))
+(define (rectangle-base rectangle)
+ (make-segment (rectangle-a rectangle) (rectangle-b rectangle)))
 
-(define (a-segment-length-rect s)
- (segment-length (a-segment-rect s)))
+(define (rectangle-height rectangle)
+ (make-segment (rectangle-b rectangle) (rectangle-c rectangle)))
 
-(define (b-segment-length-rect s)
- (segment-length (b-segment-rect s)))
+(define (rectangle-base-length rectangle)
+ (segment-length (rectangle-base rectangle)))
 
-(define (perimeter s)
- (* 2 (+ (a-segment-length-rect s) (b-segment-length-rect s))))
+(define (rectangle-height-length rectangle)
+ (segment-length (rectangle-height rectangle)))
 
-(define (area s)
- (* (a-segment-length-rect s) (b-segment-length-rect s)))
+(define (rectangle-perimeter rectangle)
+ (* 2 (+ (rectangle-base-length rectangle) (rectangle-height-length rectangle))))
 
-(define test-rect
- (make-segment (make-point 0 0) (make-point 3 3)))
+(define (rectangle-area rectangle)
+ (* (rectangle-base-length rectangle) (rectangle-height-length rectangle)))
+
+(define test-rectangle (make-rectangle (make-point 0 0) (make-point 3 3)))
+(define (test-rectangle-area) (rectangle-area test-rectangle))
+(define (test-rectangle-perimeter) (rectangle-perimeter test-rectangle))
