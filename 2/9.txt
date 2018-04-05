@@ -1,0 +1,33 @@
+I1 = [5; 9]
+I2 = [3; 11]
+
+w1 = (9 - 5) / 2 = 2
+w2 = (11 - 3) / 2 = 4
+
+I1 + I2 = [8; 20] = I3
+w3 = (20 - 8) / 2 = 6 = w1 + w2
+
+I1 - I2 = [-6; 6] = I4
+w4 = (6 + 6) / 2 = 6 = w1 + w2
+
+w(I1 + I2) = ((upper I1) + (upper I2) - (lower I1) - (lower I2)) / 2
+           = ((upper I1) + (lower I1)) / 2 + ((upper I2) - (lower I2)) / 2
+           = w1 + w2
+
+w(I1 - I2) = (((upper I1) - (lower I2)) - ((lower I1) - (upper I2))) / 2
+           = ((upper I1) - (lower I2) - (lower I1) + (upper I2)) / 2
+           = ((upper I1) - (lower I1)) / 2 + ((upper I2) - (lower I2)) / 2
+           = w1 + w2
+
+I1 * I2 = ...
+ p1 = (lower I1) * (lower I2) = 15
+ p2 = (lower I1) * (upper I2) = 66
+ p3 = (upper I1) * (lower I2) = 27
+ p4 = (upper I1) * (upper I2) = 99
+        = [15; 99]
+
+w(I1 * I2) = (99 - 15) / 2 = 42
+w1 * w2 = 8
+-> w(I1 * I2) != w1 * w2
+
+too lazy to do the division but since it's just a multiplication with the reciprocal it's the same
