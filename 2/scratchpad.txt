@@ -18,3 +18,30 @@ a = 4, b = 3
 9/3
 3/3
 1
+
+
+;11
+
+x = [a; b]
+y = [c; d]
+
+16 sign combinations
+
++a +b +c +d
+ [a * c; b * d]
++a +b -c +d
+ [b * c; b * d]
++a +b -c -d
+ [b * c; a * d]
+-a +b +c +d
+ [a * d; b * d]
+-a -b +c +d
+ [b * d; a * c]
+-a +b -c +d
+ [min(a * d, b * c), b * d]
+-a +b -c -d
+ [b * c; a * d]
+-a -b -c +d
+ [a * d; a * c]
+-a -b -c -d
+ [b * d; a * c]
