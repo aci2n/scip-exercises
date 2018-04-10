@@ -1,0 +1,4 @@
+i'd guess that since par2 only executes one operation with each of the intervals, the resulting interval has a smaller width and is thus more accurate/"better" in a way.
+i think there was a way to prove the error range of an expression, don't remember how though
+
+not much more to say

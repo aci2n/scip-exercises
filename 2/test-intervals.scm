@@ -1,0 +1,6 @@
+(define i1 (make-interval 0 10))
+(define i2 (make-interval 1 3))
+(define i3 (make-interval 100 200))
+(define i4 (make-interval 1000 10000))
+(define i5 (make-interval 123456 123457))
+(define i6 (make-interval 20 21))

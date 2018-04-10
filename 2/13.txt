@@ -1,0 +1,26 @@
+let
+  p small positive number (<< 1):
+
+x = [a - (a * p); a + (a * p)]
+y = [b - (b * p); b + (b * p)]
+
+x * y = [
+ (a - (a * p)) * (b - (b * p)),
+ (a + (a * p)) * (b + (b * p))
+]
+
+(a - (a * p)) * (b - (b * p))
+(a - ap) * (b - bp)
+ab - abp - abp + abpp
+ pp <<<< 1 => abpp ~= 0
+ab - 2abp
+ab(1 - 2p)
+
+(a + ap) (b + bp)
+ab + abp + apb + abpp
+ab + 2abp
+ab(1 + 2p)
+
+x * y = [ab(1 - 2p); ab(1 + 2p)]
+
+dunno if this is the expected answer? not much to go on with
