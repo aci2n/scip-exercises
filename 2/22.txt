@@ -1,0 +1,15 @@
+it produces a reversed list because each step appends the intermediate result to the end of the list
+(cons (square (car things)) answer)
+
+for example, with (list 1 2 3)
+1st step:
+ things = (list 1 2 3)
+ answer = nil
+2nd step:
+ things = (list 2 3)
+ answer = (list 1)
+3rd step:
+ things = (list 3)
+ answer = (list 2 1)
+
+with the second approach (which just switches the car and cdr), the first element of the pair is the intermediate list, so not only does it break the list convention (next block should be accessed through cdr), it's still reversed 
