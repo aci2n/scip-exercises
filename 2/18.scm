@@ -1,6 +1,6 @@
 (define (reverse l)
- (define (iter curr result)
+ (define (step curr prev)
   (if (null? curr)
-      result
-      (iter (cdr curr) (cons (car curr) result))))
- (iter l '()))
+      prev
+      (step (cdr curr) (cons (car curr) prev))))
+ (step l '()))

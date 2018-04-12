@@ -9,7 +9,7 @@
  (car (car b)))
 
 (define (pick-c)
- (car (cdr (cdr (cdr (cdr (cdr (cdr (cdr c)))))))))
+ (car (cdr (cadr (cadr (cadr (cadr (cadr c))))))))
 
 (define (pick-all)
  (= (pick-a) (pick-b) (pick-c) 7))
