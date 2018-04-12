@@ -58,3 +58,8 @@
  (make-mobile
   (make-branch 1 (make-mobile (make-branch 1 1) (make-branch 2 2)))
   (make-branch 2 3)))
+
+(define y
+ (make-mobile
+  (make-branch 1 (make-mobile (make-branch 2 4) (make-branch 4 2)))
+  (make-branch 2 3)))
